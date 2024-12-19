@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 업무 매뉴얼 시험</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffbea;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ffd700;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffd700;
+        }
+
+        .question {
+            margin: 20px 0;
+        }
+
+        .question p {
+            font-weight: bold;
+        }
+
+        .question input {
+            margin: 5px 0;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #ffd700;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #e6c200;
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CS 업무 매뉴얼 시험</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. 오전 9시에 해야 할 첫 번째 업무는 무엇인가요? (5점)</p>
+                <input type="text" name="q1" required>
+            </div>
+            <div class="question">
+                <p>2. 국내 발주는 어떤 시간대에 진행되나요? (5점)</p>
+                <input type="text" name="q2" required>
+            </div>
+            <!-- Add more questions here -->
+            <button type="button" class="btn-submit" onclick="calculateScore()">제출</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            let score = 0;
+
+            // Correct answers
+            const answers = {
+                q1: '주문수집하기',
+                q2: '14:00 ~ 16:00'
+                // Add more correct answers here
+            };
+
+            for (const [key, value] of formData.entries()) {
+                if (answers[key] && value.trim() === answers[key]) {
+                    score += 5; // Adjust scoring as needed
+                }
+            }
+
+            const result = document.getElementById('result');
+            result.style.display = 'block';
+            result.textContent = `당신의 점수는 ${score}점입니다.`;
+        }
+    </script>
+</body>
+</html>
