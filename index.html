@@ -29,6 +29,11 @@
 
         .question {
             margin: 20px 0;
+            display: none;
+        }
+
+        .question.active {
+            display: block;
         }
 
         .question p {
@@ -64,6 +69,14 @@
             font-size: 18px;
         }
 
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ffd700;
+        }
+
         .checklist {
             margin-top: 40px;
             border-top: 2px solid #ffd700;
@@ -88,21 +101,27 @@
     <div class="container">
         <h1>CS 업무 매뉴얼 시험</h1>
         <form id="quizForm">
-            <div class="question">
+            <div class="question active">
                 <p>1. 오전 9시에 해야 할 첫 번째 업무는 무엇인가요? (5점)</p>
                 <label><input type="radio" name="q1" value="주문수집하기" required> 주문수집하기</label>
                 <label><input type="radio" name="q1" value="발송처리"> 발송처리</label>
                 <label><input type="radio" name="q1" value="미매칭 주문 분리"> 미매칭 주문 분리</label>
+                <button type="button" class="btn-submit" onclick="nextQuestion(0)">다음</button>
             </div>
             <div class="question">
                 <p>2. 국내 발주는 어떤 시간대에 진행되나요? (5점)</p>
                 <label><input type="radio" name="q2" value="9:00 ~ 11:00" required> 9:00 ~ 11:00</label>
                 <label><input type="radio" name="q2" value="14:00 ~ 16:00"> 14:00 ~ 16:00</label>
                 <label><input type="radio" name="q2" value="16:00 ~ 18:00"> 16:00 ~ 18:00</label>
+                <button type="button" class="btn-submit" onclick="nextQuestion(1)">다음</button>
             </div>
-            <!-- Remaining questions omitted for brevity -->
-            <button type="button" class="btn-submit" onclick="calculateScore()">제출</button>
+            <!-- Additional questions omitted for brevity -->
+            <div class="question">
+                <p>마지막 문제입니다. 모든 문제를 완료하셨습니다. 결과를 확인하시겠습니까?</p>
+                <button type="button" class="btn-submit" onclick="calculateScore()">결과 보기</button>
+            </div>
         </form>
+        <div class="loading" id="loading">체점 중입니다...</div>
         <div class="result" id="result"></div>
 
         <div class="checklist">
@@ -129,10 +148,15 @@
     </div>
 
     <script>
+        function nextQuestion(currentIndex) {
+            const questions = document.querySelectorAll('.question');
+            questions[currentIndex].classList.remove('active');
+            questions[currentIndex + 1].classList.add('active');
+        }
+
         function calculateScore() {
             const form = document.getElementById('quizForm');
             const formData = new FormData(form);
-
             let score = 0;
 
             // Correct answers
@@ -148,9 +172,15 @@
                 }
             }
 
+            const loading = document.getElementById('loading');
             const result = document.getElementById('result');
-            result.style.display = 'block';
-            result.textContent = `당신의 점수는 ${score}점입니다.`;
+
+            loading.style.display = 'block';
+            setTimeout(() => {
+                loading.style.display = 'none';
+                result.style.display = 'block';
+                result.textContent = `당신의 점수는 ${score}점입니다.`;
+            }, 3000);
         }
 
         function markTask(checkbox) {
