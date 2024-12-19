@@ -35,7 +35,8 @@
             font-weight: bold;
         }
 
-        .question input {
+        .question label {
+            display: block;
             margin: 5px 0;
         }
 
@@ -70,13 +71,124 @@
         <form id="quizForm">
             <div class="question">
                 <p>1. 오전 9시에 해야 할 첫 번째 업무는 무엇인가요? (5점)</p>
-                <input type="text" name="q1" required>
+                <label><input type="radio" name="q1" value="주문수집하기" required> 주문수집하기</label>
+                <label><input type="radio" name="q1" value="발송처리"> 발송처리</label>
+                <label><input type="radio" name="q1" value="미매칭 주문 분리"> 미매칭 주문 분리</label>
             </div>
             <div class="question">
                 <p>2. 국내 발주는 어떤 시간대에 진행되나요? (5점)</p>
-                <input type="text" name="q2" required>
+                <label><input type="radio" name="q2" value="9:00 ~ 11:00" required> 9:00 ~ 11:00</label>
+                <label><input type="radio" name="q2" value="14:00 ~ 16:00"> 14:00 ~ 16:00</label>
+                <label><input type="radio" name="q2" value="16:00 ~ 18:00"> 16:00 ~ 18:00</label>
             </div>
-            <!-- Add more questions here -->
+            <div class="question">
+                <p>3. 안정재고 수정은 언제 해야 하나요? (5점)</p>
+                <label><input type="radio" name="q3" value="오전"> 오전</label>
+                <label><input type="radio" name="q3" value="오후"> 오후</label>
+                <label><input type="radio" name="q3" value="밤"> 밤</label>
+            </div>
+            <div class="question">
+                <p>4. 주문 처리는 몇 단계로 이루어지나요? (5점)</p>
+                <label><input type="radio" name="q4" value="1단계"> 1단계</label>
+                <label><input type="radio" name="q4" value="2단계"> 2단계</label>
+                <label><input type="radio" name="q4" value="3단계"> 3단계</label>
+            </div>
+            <div class="question">
+                <p>5. CS 이슈 캘린더는 어떤 목적으로 사용되나요? (5점)</p>
+                <label><input type="radio" name="q5" value="발주 확인"> 발주 확인</label>
+                <label><input type="radio" name="q5" value="휴무일 체크"> 휴무일 체크</label>
+                <label><input type="radio" name="q5" value="배송 상태 확인"> 배송 상태 확인</label>
+            </div>
+            <div class="question">
+                <p>6. 미매칭 주문은 언제 확인해야 하나요? (5점)</p>
+                <label><input type="radio" name="q6" value="매일"> 매일</label>
+                <label><input type="radio" name="q6" value="주 1회"> 주 1회</label>
+                <label><input type="radio" name="q6" value="월 1회"> 월 1회</label>
+            </div>
+            <div class="question">
+                <p>7. 오후 1시의 주요 업무는 무엇인가요? (5점)</p>
+                <label><input type="radio" name="q7" value="발송 처리"> 발송 처리</label>
+                <label><input type="radio" name="q7" value="주문 수집"> 주문 수집</label>
+                <label><input type="radio" name="q7" value="재고 확인"> 재고 확인</label>
+            </div>
+            <div class="question">
+                <p>8. 주문처리 프로세스는 어디에서 관리되나요? (5점)</p>
+                <label><input type="radio" name="q8" value="구글 스프레드시트"> 구글 스프레드시트</label>
+                <label><input type="radio" name="q8" value="노션"> 노션</label>
+                <label><input type="radio" name="q8" value="엑셀"> 엑셀</label>
+            </div>
+            <div class="question">
+                <p>9. 발송처리는 어떤 플랫폼에서 이루어지나요? (5점)</p>
+                <label><input type="radio" name="q9" value="셀메이트"> 셀메이트</label>
+                <label><input type="radio" name="q9" value="스마트스토어"> 스마트스토어</label>
+                <label><input type="radio" name="q9" value="카페24"> 카페24</label>
+            </div>
+            <div class="question">
+                <p>10. 고객의 주소지 변경 요청은 어디에서 처리해야 하나요? (5점)</p>
+                <label><input type="radio" name="q10" value="카카오톡"> 카카오톡</label>
+                <label><input type="radio" name="q10" value="고객센터"> 고객센터</label>
+                <label><input type="radio" name="q10" value="전화"> 전화</label>
+            </div>
+            <div class="question">
+                <p>11. 안정재고는 어떤 기준으로 수정되나요? (5점)</p>
+                <label><input type="radio" name="q11" value="발주 수량"> 발주 수량</label>
+                <label><input type="radio" name="q11" value="판매 추이"> 판매 추이</label>
+                <label><input type="radio" name="q11" value="재고 부족"> 재고 부족</label>
+            </div>
+            <div class="question">
+                <p>12. 스마트스토어 주문취소는 어디에서 확인할 수 있나요? (5점)</p>
+                <label><input type="radio" name="q12" value="셀메이트"> 셀메이트</label>
+                <label><input type="radio" name="q12" value="스마트스토어"> 스마트스토어</label>
+                <label><input type="radio" name="q12" value="카페24"> 카페24</label>
+            </div>
+            <div class="question">
+                <p>13. 고객문의는 어떤 플랫폼에서 주로 처리되나요? (5점)</p>
+                <label><input type="radio" name="q13" value="인스타그램"> 인스타그램</label>
+                <label><input type="radio" name="q13" value="카카오톡"> 카카오톡</label>
+                <label><input type="radio" name="q13" value="구글 메시지"> 구글 메시지</label>
+            </div>
+            <div class="question">
+                <p>14. CS 이슈 캘린더는 어디에서 관리되나요? (5점)</p>
+                <label><input type="radio" name="q14" value="노션"> 노션</label>
+                <label><input type="radio" name="q14" value="엑셀"> 엑셀</label>
+                <label><input type="radio" name="q14" value="스프레드시트"> 스프레드시트</label>
+            </div>
+            <div class="question">
+                <p>15. 발주대장은 어떤 플랫폼에서 확인할 수 있나요? (5점)</p>
+                <label><input type="radio" name="q15" value="노션"> 노션</label>
+                <label><input type="radio" name="q15" value="구글 스프레드시트"> 구글 스프레드시트</label>
+                <label><input type="radio" name="q15" value="셀메이트"> 셀메이트</label>
+            </div>
+            <div class="question">
+                <p>16. 주문처리는 몇 시에 시작되나요? (5점)</p>
+                <label><input type="radio" name="q16" value="오전 9시"> 오전 9시</label>
+                <label><input type="radio" name="q16" value="오전 10시"> 오전 10시</label>
+                <label><input type="radio" name="q16" value="오전 11시"> 오전 11시</label>
+            </div>
+            <div class="question">
+                <p>17. 미매칭 주문 분리는 어떤 시간대에 수행되나요? (5점)</p>
+                <label><input type="radio" name="q17" value="오전"> 오전</label>
+                <label><input type="radio" name="q17" value="오후"> 오후</label>
+                <label><input type="radio" name="q17" value="저녁"> 저녁</label>
+            </div>
+            <div class="question">
+                <p>18. 발주 업무는 주로 어디에서 관리되나요? (5점)</p>
+                <label><input type="radio" name="q18" value="셀메이트"> 셀메이트</label>
+                <label><input type="radio" name="q18" value="노션"> 노션</label>
+                <label><input type="radio" name="q18" value="구글 스프레드시트"> 구글 스프레드시트</label>
+            </div>
+            <div class="question">
+                <p>19. CS 담당자는 어떤 기준으로 휴무일을 확인하나요? (5점)</p>
+                <label><input type="radio" name="q19" value="CS 캘린더"> CS 캘린더</label>
+                <label><input type="radio" name="q19" value="근태 기록"> 근태 기록</label>
+                <label><input type="radio" name="q19" value="직접 요청"> 직접 요청</label>
+            </div>
+            <div class="question">
+                <p>20. 주문수집은 몇 시에 진행되나요? (5점)</p>
+                <label><input type="radio" name="q20" value="오전 9시"> 오전 9시</label>
+                <label><input type="radio" name="q20" value="오후 1시"> 오후 1시</label>
+                <label><input type="radio" name="q20" value="오후 4시"> 오후 4시</label>
+            </div>
             <button type="button" class="btn-submit" onclick="calculateScore()">제출</button>
         </form>
         <div class="result" id="result"></div>
@@ -92,13 +204,30 @@
             // Correct answers
             const answers = {
                 q1: '주문수집하기',
-                q2: '14:00 ~ 16:00'
-                // Add more correct answers here
+                q2: '14:00 ~ 16:00',
+                q3: '오전',
+                q4: '2단계',
+                q5: '휴무일 체크',
+                q6: '매일',
+                q7: '주문 수집',
+                q8: '노션',
+                q9: '셀메이트',
+                q10: '고객센터',
+                q11: '판매 추이',
+                q12: '스마트스토어',
+                q13: '카카오톡',
+                q14: '노션',
+                q15: '구글 스프레드시트',
+                q16: '오전 9시',
+                q17: '오전',
+                q18: '셀메이트',
+                q19: 'CS 캘린더',
+                q20: '오전 9시'
             };
 
             for (const [key, value] of formData.entries()) {
-                if (answers[key] && value.trim() === answers[key]) {
-                    score += 5; // Adjust scoring as needed
+                if (answers[key] && value === answers[key]) {
+                    score += 5;
                 }
             }
 
